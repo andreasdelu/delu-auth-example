@@ -38,7 +38,7 @@ app.use(auth.sessionHandler);
 // Login route with redirect if user is already logged in
 app.get("/login", (req, res) => {
 	if (req.user) {
-		return res.redirect("/");
+		return res.redirect("back");
 	}
 	return res.sendFile(__dirname + "/views/login.html");
 });
