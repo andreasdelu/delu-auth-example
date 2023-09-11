@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <main>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/protected">Protected</a>
+            <a href="/public">Public</a>
+            <a href="/login" class="active">Login</a>
+        </nav>
+        <h1>Login</h1>
+        <p style="margin-bottom: 2rem;">
+            This is the login route.
+        </p>
+        <form id="login">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required value="admin">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required value="admin">
+            <button type="submit">Login</button>
+        </form>
+        <script>
+            const login = document.getElementById('login');
+            login.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                const res = await fetch("../login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password
+                    })
+                });
+
+                if (res.status == 200) {
+                    const data = await res.json();
+                    window.location.href = data.redirectPath;
+                }
+                else {
+                    const data = await res.json();
+                    alert(data.message);
+                }
+            })
+
+        </script>
+    </main>
+</body>
+
+</html>

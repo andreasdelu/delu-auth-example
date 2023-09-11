@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protected</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <main>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/protected" class="active">Protected</a>
+            <a href="/public">Public</a>
+            <a href="/login">Login</a>
+        </nav>
+        <h1>Protected</h1>
+        <p style="margin-bottom: 2rem;">
+            This is a protected route, which is only accessible to logged in users.
+        </p>
+        <button id="logout">Logout</button>
+        <script>
+            document.getElementById('logout').addEventListener('click', async () => {
+                const res = await fetch("../logout", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                });
+
+                if (res.status === 200) {
+                    const data = await res.json();
+                    window.location.href = data.redirectPath;
+                }
+            });
+        </script>
+    </main>
+</body>
+
+</html>

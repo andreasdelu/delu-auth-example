@@ -1,0 +1,120 @@
+:root {
+	--text: #fcfcff;
+	--background: #00040c;
+	--primary: #001bec;
+	--secondary: #141414;
+	--accent: #54ffb2;
+}
+
+body {
+	background-color: var(--background);
+	color: var(--text);
+	font-family: "Inter", sans-serif;
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin-top: 1rem;
+}
+
+h1 {
+	font-size: 3rem;
+	font-weight: 700;
+	margin: 0;
+}
+
+nav {
+	background-color: rgba(255, 255, 255, 0.05);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 440px;
+	margin-bottom: 2rem;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+nav a {
+	width: 25%;
+	text-align: center;
+	padding: 1rem 1rem;
+	text-decoration: none;
+	color: var(--text);
+	transition: background-color 0.1s ease-in-out;
+}
+
+nav a:hover {
+	background-color: rgba(255, 255, 255, 0.08);
+}
+
+nav a.active {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+button {
+	background-color: var(--text);
+	color: var(--background);
+	border: none;
+	border-radius: 8px;
+	padding: 0.8rem 1.5rem;
+	font-size: 0.9rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.1s ease-in-out;
+}
+
+button:hover {
+	opacity: 0.9;
+}
+
+#login {
+	background-color: rgba(255, 255, 255, 0.05);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 440px;
+	padding: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+
+#login label {
+	font-size: 0.9rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	margin-top: 1rem;
+	text-align: left;
+	width: 100%;
+}
+
+#login input {
+	background-color: rgba(255, 255, 255, 0.1);
+	border: none;
+	border-radius: 8px;
+	padding: 0.8rem 1rem;
+	font-size: 0.9rem;
+	color: var(--text);
+	margin-bottom: 1rem;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#login input:focus {
+	outline: none;
+}
+
+#login button {
+	width: 100%;
+	margin-top: 1rem;
+}
